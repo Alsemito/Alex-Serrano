@@ -46,6 +46,7 @@ while True:
             print("\nThe answer is ", answer.decode())
 
         case "2":
+            log = input("Do you want a log of all the operations and results? [y][n]")
             # Open the sample file
             with open("sample.csv", "r") as f:
                 reader = csv.reader(f)
@@ -58,6 +59,11 @@ while True:
                     client.send(msg.encode())
                     answer = client.recv(1024)
                     print("The operation performed is ", first_value, operation, second_value, " = ", answer.decode())
+
+                    # If the user wants, it can generate a log file as a .txt
+                    if log == "y":
+                        with open('results_log.txt', 'a') as log_file:
+                            log_file.write(first_value + operation + second_value + " = " + answer.decode() + "\n")
 
     # If user wants to terminate the connection with the server socket they can type 'y'
     aux = input("\nDo you want to terminate? [y/n]\n")
