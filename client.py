@@ -17,7 +17,7 @@ while True:
         client.send(aux.encode())
         break
 
-    print("This is a simple calculator that is able to perform addition, subtraction, multiplication and division")
+    print("This is a simple calculator that is able to perform addition, subtraction, multiplication and division\n")
 
     # With this, one is able to toggle between parts of the assignment
     choice = input("Do you want to input the operation yourself or read it from the sample file?\n"
@@ -46,7 +46,7 @@ while True:
             print("\nThe answer is ", answer.decode())
 
         case "2":
-            log = input("Do you want a log of all the operations and results? [y][n]")
+            log = input("Do you want a log of all the operations and results? [y][n]\n")
             # Open the sample file
             with open("sample.csv", "r") as f:
                 reader = csv.reader(f)
